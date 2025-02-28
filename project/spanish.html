@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda de Ropa - Moda para toda la familia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            font-size: 3rem;
+            color: #333;
+            font-family: 'Georgia', serif;
+        }
+        
+        .logo-icons {
+            display: flex;
+            margin-left: 15px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+        
+        .hero {
+            height: 400px;
+            background-image: url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .product {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-name {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Mi Tienda de Ropa</h1>
+                <div class="logo-icons">
+                    <div class="logo-icon" style="background-color: #ff6b6b;"></div>
+                    <div class="logo-icon" style="background-color: #5f27cd;"></div>
+                    <div class="logo-icon" style="background-color: #54a0ff;"></div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#hombres">Hombres</a></li>
+                    <li><a href="#mujeres">Mujeres</a></li>
+                    <li><a href="#ninos">Niños</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Estilo Para Toda La Familia</h2>
+            <p>Descubre nuestra nueva colección de verano con increíbles descuentos.</p>
+            <a href="#" class="btn">Ver Ofertas</a>
+        </div>
+    </section>
+    
+    <main class="container">
+        <h2 id="hombres" class="section-title">Hombres</h2>
+        <div class="products">
+            <div class="product">
+                <img src="images/camisa-elegante.jpeg" alt="Camisa elegante">
+                <div class="product-info">
+                    <h3 class="product-name">Camisa elegante</h3>
+                    <p class="product-desc">Camisa azul de lino, perfecta para el verano. Disponible en S, M, y L.</p>
+                    <p class="product-price">$25.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/2b90ada3-295c-4838-876a-b05586d02f72.webp
+                " alt="Pantalón chino">
+                <div class="product-info">
+                    <h3 class="product-name">Pantalón chino</h3>
+                    <p class="product-desc">Pantalón beige ligero, ideal para ocasiones casuales. Disponible en todas las tallas.</p>
+                    <p class="product-price">$34.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/719qSydVYML._AC_UY1000_.jpg" alt="Chaqueta de cuero">
+                <div class="product-info">
+                    <h3 class="product-name">Chaqueta de cuero</h3>
+                    <p class="product-desc">Chaqueta negra de cuero, estilo clásico y duradero. Tallas M a XL.</p>
+                    <p class="product-price">$89.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/71ZzJaDyChL._AC_UY1000_.jpg" alt="Sudadera con capucha">
+                <div class="product-info">
+                    <h3 class="product-name">Sudadera con capucha</h3>
+                    <p class="product-desc">Sudadera gris con capucha, cómoda y cálida. Todas las tallas disponibles.</p>
+                    <p class="product-price">$29.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/a6926f7ff7e745d7bf0c9fca910c121c.webp" alt="Camiseta básica">
+                <div class="product-info">
+                    <h3 class="product-name">Camiseta básica</h3>
+                    <p class="product-desc">Camiseta blanca de algodón, esencial para cualquier guardarropa. Pack de 3.</p>
+                    <p class="product-price">$19.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/za[atps.jpg" alt="Zapatos deportivos">
+                <div class="product-info">
+                    <h3 class="product-name">Zapatos deportivos</h3>
+                    <p class="product-desc">Zapatillas negras para correr, ligeras y resistentes. Tallas 40-45.</p>
+                    <p class="product-price">$49.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/wath.jpg" alt="Reloj elegante">
+                <div class="product-info">
+                    <h3 class="product-name">Reloj elegante</h3>
+                    <p class="product-desc">Reloj con correa de cuero, diseño clásico para uso diario.</p>
+                    <p class="product-price">$39.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/download.jpg" alt="Camisa de cuadros">
+                <div class="product-info">
+                    <h3 class="product-name">Camisa de cuadros</h3>
+                    <p class="product-desc">Camisa de franela a cuadros, perfecta para otoño. Tallas S-XL.</p>
+                    <p class="product-price">$27.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/download (1).2.jpg" alt="Gorra de béisbol">
+                <div class="product-info">
+                    <h3 class="product-name">Gorra de béisbol</h3>
+                    <p class="product-desc">Gorra ajustable, disponible en varios colores. Talla única.</p>
+                    <p class="product-price">$14.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/be;t.jpg" alt="Cinturón de cuero">
+                <div class="product-info">
+                    <h3 class="product-name">Cinturón de cuero</h3>
+                    <p class="product-desc">Cinturón marrón de cuero genuino. Longitud ajustable.</p>
+                    <p class="product-price">$22.99</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 id="mujeres" class="section-title">Mujeres</h2>
+        <div class="products">
+            <div class="product">
+                <img src="images/vestido de verano.jpg" alt="Vestido de verano">
+                <div class="product-info">
+                    <h3 class="product-name">Vestido de verano</h3>
+                    <p class="product-desc">Vestido floral ligero, perfecto para los días cálidos. Tallas XS-L.</p>
+                    <p class="product-price">$39.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/blusa elegante.jpg" alt="Blusa elegante">
+                <div class="product-info">
+                    <h3 class="product-name">Blusa elegante</h3>
+                    <p class="product-desc">Blusa blanca con detalles de encaje, ideal para la oficina. Tallas S-XL.</p>
+                    <p class="product-price">$28.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/jeans ajustados.jpg" alt="Jeans ajustados">
+                <div class="product-info">
+                    <h3 class="product-name">Jeans ajustados</h3>
+                    <p class="product-desc">Jeans azules de cintura alta, elásticos y cómodos. Disponibles en varias tallas.</p>
+                    <p class="product-price">$44.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/zapatos de tacon.jpg" alt="Zapatos de tacón">
+                <div class="product-info">
+                    <h3 class="product-name">Zapatos de tacón</h3>
+                    <p class="product-desc">Tacones negros clásicos, altura media. Tallas 35-40.</p>
+                    <p class="product-price">$54.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Bolso de mano.jpg" alt="Bolso de mano">
+                <div class="product-info">
+                    <h3 class="product-name">Bolso de mano</h3>
+                    <p class="product-desc">Bolso de cuero sintético, espacioso y elegante. Color marrón.</p>
+                    <p class="product-price">$49.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/falda midi.jpg" alt="Falda midi">
+                <div class="product-info">
+                    <h3 class="product-name">Falda midi</h3>
+                    <p class="product-desc">Falda plisada hasta la rodilla, elegante y versátil. Tallas XS-XL.</p>
+                    <p class="product-price">$34.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Pulsera dorada.jpg" alt="Pulsera dorada">
+                <div class="product-info">
+                    <h3 class="product-name">Pulsera dorada</h3>
+                    <p class="product-desc">Pulsera minimalista bañada en oro, ajustable a cualquier muñeca.</p>
+                    <p class="product-price">$18.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Chaqueta denim.jpg" alt="Chaqueta denim">
+                <div class="product-info">
+                    <h3 class="product-name">Chaqueta denim</h3>
+                    <p class="product-desc">Chaqueta vaquera clásica, combina con todo. Tallas S-L.</p>
+                    <p class="product-price">$45.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/leggings deportivos.jpg" alt="Leggings deportivos">
+                <div class="product-info">
+                    <h3 class="product-name">Leggings deportivos</h3>
+                    <p class="product-desc">Leggings negros de alta compresión para gimnasio o uso casual.</p>
+                    <p class="product-price">$29.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Gafas de sol.jpg" alt="Gafas de sol">
+                <div class="product-info">
+                    <h3 class="product-name">Gafas de sol</h3>
+                    <p class="product-desc">Gafas estilo cat-eye con protección UV. Diseño moderno.</p>
+                    <p class="product-price">$24.99</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 id="ninos" class="section-title">Niños</h2>
+        <div class="products">
+            <div class="product">
+                <img src="images/camiseta de dinosaurios.jpg" alt="Camiseta de dinosaurios">
+                <div class="product-info">
+                    <h3 class="product-name">Camiseta de dinosaurios</h3>
+                    <p class="product-desc">Camiseta colorida con estampado de dinosaurios. Edades 3-8 años.</p>
+                    <p class="product-price">$15.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Pantalones vaqueros.jpg" alt="Pantalones vaqueros">
+                <div class="product-info">
+                    <h3 class="product-name">Pantalones vaqueros</h3>
+                    <p class="product-desc">Jeans resistentes para niños activos. Tallas para 4-10 años.</p>
+                    <p class="product-price">$22.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Vestido de princesa.jpg" alt="Vestido de princesa">
+                <div class="product-info">
+                    <h3 class="product-name">Vestido de princesa</h3>
+                    <p class="product-desc">Vestido azul brillante con detalles de tul. Edades 4-8 años.</p>
+                    <p class="product-price">$29.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/zapatillas infatiles.jpg" alt="Zapatillas infantiles">
+                <div class="product-info">
+                    <h3 class="product-name">Zapatillas infantiles</h3>
+                    <p class="product-desc">Zapatillas con luces LED, comodidad garantizada. Tallas 25-32.</p>
+                    <p class="product-price">$26.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Gorra de superhero.jpg" alt="Gorra de superhéroe">
+                <div class="product-info">
+                    <h3 class="product-name">Gorra de superhéroe</h3>
+                    <p class="product-desc">Gorra ajustable con logos de superhéroes. Talla única para niños.</p>
+                    <p class="product-price">$12.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Pijama de algodon.jpg" alt="Pijama de algodón">
+                <div class="product-info">
+                    <h3 class="product-name">Pijama de algodón</h3>
+                    <p class="product-desc">Pijama suave y cómodo con estampados divertidos. Edades 3-10 años.</p>
+                    <p class="product-price">$19.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Mochilla escolar.jpg" alt="Mochila escolar">
+                <div class="product-info">
+                    <h3 class="product-name">Mochila escolar</h3>
+                    <p class="product-desc">Mochila resistente con múltiples compartimentos. Diseños variados.</p>
+                    <p class="product-price">$24.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Calcentines divertidos.jpg" alt="Calcetines divertidos">
+                <div class="product-info">
+                    <h3 class="product-name">Calcetines divertidos</h3>
+                    <p class="product-desc">Pack de 5 pares de calcetines con diseños coloridos. Varias tallas.</p>
+                    <p class="product-price">$9.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/Sudadera con capucha.jpg" alt="Sudadera con capucha">
+                <div class="product-info">
+                    <h3 class="product-name">Sudadera con capucha</h3>
+                    <p class="product-desc">Sudadera cálida para niños y niñas. Disponible en varios colores.</p>
+                    <p class="product-price">$23.99</p>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="images/botas de llluvia.jpg" alt="Botas de lluvia">
+                <div class="product-info">
+                    <h3 class="product-name">Botas de lluvia</h3>
+                    <p class="product-desc">Botas impermeables coloridas para días lluviosos. Tallas 25-34.</p>
+                    <p class="product-price">$21.99</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mi Tienda de Ropa</h3>
+                    <p>Tu destino de moda para toda la familia. Ofrecemos calidad y estilo a precios accesibles.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#hombres">Hombres</a>
+                    <a href="#mujeres">Mujeres</a>
+                    <a href="#ninos">Niños</a>
+                    <a href="#ofertas">Ofertas</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Calle Principal 123</p>
+                    <p>Ciudad, País</p>
+                    <p>Email: info@mitiendaderopa.com</p>
+                    <p>Teléfono: (123) 456-7890</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Mi Tienda de Ropa. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
